@@ -56,7 +56,7 @@
         email: "salmannandaram2@gmail.com",
         phone: "+91 86882 72598",
         linkedin: "https://www.linkedin.com/in/nandaram-salman-2177b43a4",
-        github: "https://github.com/nandaramsalman"
+        github: "https://github.com/salmannandaram3"
       },
       skills: [
         { id: uid(), title: "Programming Languages", items: ["Java", "Python", "C"] },
