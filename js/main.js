@@ -429,7 +429,7 @@
     { label: "Projects", hint: "Section", icon: "section", run: () => go("#projects") },
     { label: "Education", hint: "Section", icon: "section", run: () => go("#education") },
     { label: "Contact", hint: "Section", icon: "section", run: () => go("#contact") },
-    { label: "Download résumé", hint: "PDF", icon: "link", run: () => { window.location.href = "assets/Nandaram-Salman-Resume.pdf"; } },
+    { label: "Download résumé", hint: "PDF", icon: "link", run: () => { window.location.href = (window.PortfolioData && window.PortfolioData.getResume()) || "assets/Nandaram-Salman-Resume.pdf"; } },
     { label: "GitHub profile", hint: "External", icon: "link", run: () => window.open("https://github.com/salmannandaram3", "_blank", "noopener") },
     { label: "LinkedIn profile", hint: "External", icon: "link", run: () => window.open("https://www.linkedin.com/in/nandaram-salman-2177b43a4", "_blank", "noopener") },
     { label: "Send an email", hint: "Mail", icon: "link", run: () => { window.location.href = "mailto:salmannandaram2@gmail.com"; } },

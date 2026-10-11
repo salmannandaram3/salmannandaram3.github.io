@@ -56,7 +56,8 @@
         email: "salmannandaram2@gmail.com",
         phone: "+91 86882 72598",
         linkedin: "https://www.linkedin.com/in/nandaram-salman-2177b43a4",
-        github: "https://github.com/salmannandaram3"
+        github: "https://github.com/salmannandaram3",
+        resume: "assets/Nandaram-Salman-Resume.pdf"
       },
       skills: [
         { id: uid(), title: "Programming Languages", items: ["Java", "Python", "C"] },
@@ -175,6 +176,9 @@
     if (railEmail) { railEmail.textContent = p.email; railEmail.href = "mailto:" + p.email; }
     const railLinks = $$(".rail a[href^='mailto']");
     railLinks.forEach((a) => { a.href = "mailto:" + p.email; });
+
+    const resumeURL = p.resume || "assets/Nandaram-Salman-Resume.pdf";
+    $$("a[download]").forEach((a) => { a.href = resumeURL; });
 
     const list = $("#contactList");
     if (list) {
@@ -319,7 +323,8 @@
       { key: "email", label: "Email", type: "text" },
       { key: "phone", label: "Phone", type: "text" },
       { key: "linkedin", label: "LinkedIn URL", type: "text" },
-      { key: "github", label: "GitHub URL", type: "text" }
+      { key: "github", label: "GitHub URL", type: "text" },
+      { key: "resume", label: "Résumé link (asset path or full URL)", type: "text" }
     ],
     skill: [
       { key: "title", label: "Category name", type: "text" },
@@ -438,7 +443,7 @@
     const { type, id } = current;
 
     if (type === "profile") {
-      ["name", "headline", "status", "summary", "aboutLead", "aboutBody", "email", "phone", "linkedin", "github"].forEach((k) => {
+      ["name", "headline", "status", "summary", "aboutLead", "aboutBody", "email", "phone", "linkedin", "github", "resume"].forEach((k) => {
         if (data[k] !== undefined) state.profile[k] = data[k].trim();
       });
       state.profile.facts = splitLines(data.facts).map((line) => {
@@ -609,6 +614,7 @@
     get state() { return state; },
     getProject: (id) => (state.projects || []).find((p) => p.id === id) || null,
     getEmail: () => state.profile.email,
+    getResume: () => state.profile.resume || "assets/Nandaram-Salman-Resume.pdf",
     render: renderAll
   };
 })();
